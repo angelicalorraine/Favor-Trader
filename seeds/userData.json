@@ -1,0 +1,42 @@
+[
+    {
+        "first_name": "Robert",
+        "last_name": "Fine",
+        "email": "rfine0@aol.com",
+        "password": "password",
+        "location_string": "8039+Beach+Blvd+Buena+Park+CA+90620",
+        "zip": 90620
+    },
+    {
+        "first_name": "Gayel",
+        "last_name": "Kneafsey",
+        "email": "gkneafsey1@theguardian.com",
+        "password": "bIiF0XG",
+        "location_string": "670+Spectrum+Center+Dr+Irvine+CA+92618",
+        "zip": 92618
+    },
+    {
+        "first_name": "Murry",
+        "last_name": "Girodier",
+        "email": "mgirodier2@cyberchimps.com",
+        "password": "wXhTWB",
+        "location_string": "1313+Disneyland+Dr+Anaheim+CA+92802",
+        "zip": 92802
+    },
+    {
+        "first_name": "Joaquin",
+        "last_name": "Diben",
+        "email": "jdiben3@themeforest.net",
+        "password": "90TzO6dm",
+        "location_string": "1126+Queens+Hwy+Long+Beach+CA+90802",
+        "zip": 90802
+    },
+    {   
+        "first_name": "Odo",
+        "last_name": "Leadbeatter",
+        "email": "oleadbeatter4@oaic.gov.au",
+        "password": "dPGEM8kf",
+        "location_string": "1000+Avocado+Ave+Newport+Beach+CA+92660",
+        "zip": 92660
+    }
+]

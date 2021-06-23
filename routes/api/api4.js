@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Model3 } = require('../../models/Trade');
+const { Model4 } = require('../../models/Trade');
 
 // CREATE a
 router.post('/', async (req, res) => {
