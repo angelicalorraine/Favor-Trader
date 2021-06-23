@@ -11,8 +11,8 @@ const seedDatabase = async () => {
 
   const users = await User.bulkCreate(userData);
   const favors = await Favor.bulkCreate(favorData);
-  const trade = await Trade.bulkCreate(tradeData);
-  const offer = await Offer.bulkCreate(offerData);
+  const trades = await Trade.bulkCreate(tradeData);
+  const offers = await Offer.bulkCreate(offerData);
 
   process.exit(0);
 };

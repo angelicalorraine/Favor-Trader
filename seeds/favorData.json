@@ -29,63 +29,61 @@
         "difficulty": "1",
         "user_id": 4
     },
-        {
+    {
         "title": "House Sitting",
         "description": "Am leaving on a 5 day trip. I need someone to come over get the mail",
         "difficulty": "1",
         "user_id": 5
     },
-        {
+    {
         "title": "Paint a Fence",
         "description": "I need someone to sand and paint a 12 foot fence.",
         "difficulty": "4",
         "user_id": 5
     },
-        {
+    {
         "title": "Wash My Car",
         "description": "My truck needs to be washed and waxed",
         "difficulty": "4",
         "user_id": 2
     },
-        {
+    {
         "title": "Clean Garage",
         "description": "Help me by organizaing my garage",
         "difficulty": "4",
         "user_id": 4
     },
-        {
+    {
         "title": "Fix Clogged Dish Washer",
         "description": "Dish washer won't drain",
         "difficulty": "2",
         "user_id": 2
     },
-        {
+    {
         "title": "Assemble IKEA Furniture",
         "description": "Help me put together a new dresser and bedset",
         "difficulty": "5",
         "user_id": 3
     },
-        {
+    {
         "title": "Fix my Laptop",
         "description": "Laptop stopped working after Windows update.",
         "difficulty": "5",
         "user_id": 5
     },
-        {
+    {
         "title": "Teach Me to Play Guitar",
         "description": "I need a guitar instructor. I have no experience.",
         "difficulty": "4",
         "user_id": 1
-    }
-    ,
-        {
+    },
+    {
         "title": "Math Tutor",
         "description": "My junior high son needs a good math tutor.",
         "difficulty": "3",
         "user_id": 1
-    }
-    ,
-        {
+    },
+    {
         "title": "Photography",
         "description": "I need someone with a camera who can take a new headshot for me.",
         "difficulty": "2",

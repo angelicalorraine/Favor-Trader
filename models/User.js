@@ -26,6 +26,7 @@ User.init(
       validate: {
         len: [8],
       },
+    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -43,11 +44,12 @@ User.init(
       allowNull: false,
     },
   },
+  {
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        //some more logic to create location_string;
-        newUserData.location_string =`${newUserData.street}+street2+cioty+state+zip` 
+        // some more logic to create location_string;
+        // newUserData.location_string =`${newUserData.street}+street2+cioty+state+zip` 
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
