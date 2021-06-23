@@ -1,0 +1,12 @@
+[
+    {   "buyer_id": 1,
+        "seller_id": 3,
+        "date_traded": "06/21/2021",
+        "transaction": "{'buyer_offer':[1],'seller_offer':[3,4]}"
+    },
+    {   "buyer_id": 2,
+        "seller_id": 4,
+        "date_traded": "06/22/2021",
+        "transaction": "{'buyer_offer':[2],'seller_offer':[5]}"
+    }
+]

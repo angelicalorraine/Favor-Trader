@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const {Client} = require("@googlemaps/google-maps-services-js");
+
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
@@ -15,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: 'Super secret secret',
+  secret: 'secret',
   cookie: {},
   resave: false,
   saveUninitialized: true,
