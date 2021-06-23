@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Model1 } = require('../../models/Model1');
+const { Model2 } = require('../../models/Model2');
+//const withAuth = require('../../utils/auth');
 
-// GET all
+// GET all 
 router.get('/', async (req, res) => {
 
 });
@@ -9,6 +10,10 @@ router.get('/', async (req, res) => {
 // GET a single
 router.get('/:id', async (req, res) => {
 
+});
+
+// CREATE a 
+router.post('/', async (req, res) => {
 
 });
 
