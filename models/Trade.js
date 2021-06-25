@@ -23,8 +23,8 @@ Trade.init(
     seller_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-    }
   },
+    
   {
     sequelize,
     freezeTableName: true,
