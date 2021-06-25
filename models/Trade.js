@@ -9,7 +9,7 @@ Trade.init(
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrement: true
+        autoIncrement: true,
     },
     date_traded: {
           type: DataTypes.DATE,
@@ -18,16 +18,16 @@ Trade.init(
     },
     buyer_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
     }, 
     seller_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
     }, 
     transaction: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
   {
     sequelize,
