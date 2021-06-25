@@ -21,10 +21,12 @@ Trade.init(
       allowNull: false,
     },
     seller_id: {
+
       type: DataTypes.INTEGER,
       allowNull: false,
   },
     
+
   {
     sequelize,
     freezeTableName: true,
