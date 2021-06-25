@@ -25,7 +25,7 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-    // Collect values from the signup form
+  // Collect values from the signup form
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const firstName = document.querySelector('#firstName-signup').value.trim();
@@ -36,12 +36,12 @@ const signupFormHandler = async (event) => {
   const state = document.querySelector('#state-signup').value.trim();
 
   function findAndReplace(string, target, replacement) {
-        let i = 0, length = string.length;
-        for (i; i < length; i++) {
-            string = string.replace(target, replacement);
-        }
-        return string;
+    let i = 0, length = string.length;
+    for (i; i < length; i++) {
+      string = string.replace(target, replacement);
     }
+    return string;
+  }
   const formattedAddress = findAndReplace(address, " ", "+");
 
   const location_string = `${formattedAddress}+${city}+${state}+${zip}`;
@@ -49,12 +49,12 @@ const signupFormHandler = async (event) => {
   if (name && email && password && firstName && lastName && zip && location_string) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password, firstName, lastName, zip, location_string }),
+      body: JSON.stringify({ email, password, firstName, lastName, zip, location_string }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-       // If successful, redirect the browser to the dashboard page
+      // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
