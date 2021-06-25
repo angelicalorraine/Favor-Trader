@@ -43,6 +43,9 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    skills: {
+      type: DataTypes.STRING
+    }
   },
   {
     hooks: {

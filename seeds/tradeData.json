@@ -1,12 +1,14 @@
 [
     {   "buyer_id": 1,
+        "buyer_item": 1,
+        "seller_item": 3,
         "seller_id": 3,
-        "date_traded": "06/21/2021",
-        "transaction": "{'buyer_offer':[1],'seller_offer':[3,4]}"
+        "date_traded": "06/21/2021"
     },
     {   "buyer_id": 2,
+        "buyer_item": 2,
+        "seller_item": 5,
         "seller_id": 4,
-        "date_traded": "06/22/2021",
-        "transaction": "{'buyer_offer':[2],'seller_offer':[5]}"
+        "date_traded": "06/22/2021"
     }
 ]

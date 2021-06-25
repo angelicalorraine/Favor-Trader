@@ -24,11 +24,6 @@ Trade.init(
         type: DataTypes.INTEGER,
         allowNull: false,
     }, 
-    transaction: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-    },
   {
     sequelize,
     freezeTableName: true,

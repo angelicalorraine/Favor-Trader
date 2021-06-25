@@ -1,10 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Favor, Trade, Offer } = require('../models');
+const { User, Favor, Trade } = require('../models');
 
 const userData = require('./userData.json');
 const favorData = require('./favorData.json');
 const tradeData = require('./tradeData.json');
-const offerData = require('./offerData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,7 +11,6 @@ const seedDatabase = async () => {
   const users = await User.bulkCreate(userData);
   const favors = await Favor.bulkCreate(favorData);
   const trades = await Trade.bulkCreate(tradeData);
-  const offers = await Offer.bulkCreate(offerData);
 
   process.exit(0);
 };
