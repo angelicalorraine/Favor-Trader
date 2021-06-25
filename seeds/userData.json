@@ -5,7 +5,8 @@
         "email": "rfine0@aol.com",
         "password": "password",
         "location_string": "8039+Beach+Blvd+Buena+Park+CA+90620",
-        "zip": 90620
+        "zip": 90620,
+        "skills": " "
     },
     {
         "first_name": "Gayel",
@@ -13,7 +14,8 @@
         "email": "gkneafsey1@theguardian.com",
         "password": "bIiF0XG",
         "location_string": "670+Spectrum+Center+Dr+Irvine+CA+92618",
-        "zip": 92618
+        "zip": 92618,
+        "skills": " "
     },
     {
         "first_name": "Murry",
@@ -21,7 +23,8 @@
         "email": "mgirodier2@cyberchimps.com",
         "password": "wXhTWB",
         "location_string": "1313+Disneyland+Dr+Anaheim+CA+92802",
-        "zip": 92802
+        "zip": 92802,
+        "skills": " "
     },
     {
         "first_name": "Joaquin",
@@ -29,7 +32,8 @@
         "email": "jdiben3@themeforest.net",
         "password": "90TzO6dm",
         "location_string": "1126+Queens+Hwy+Long+Beach+CA+90802",
-        "zip": 90802
+        "zip": 90802,
+        "skills": " "
     },
     {   
         "first_name": "Odo",
@@ -37,6 +41,7 @@
         "email": "oleadbeatter4@oaic.gov.au",
         "password": "dPGEM8kf",
         "location_string": "1000+Avocado+Ave+Newport+Beach+CA+92660",
-        "zip": 92660
+        "zip": 92660,
+        "skills": " "
     }
 ]

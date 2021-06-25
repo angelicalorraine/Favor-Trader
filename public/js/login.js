@@ -1,53 +1,71 @@
-// const loginFormHandler = async (event) => {
-//   event.preventDefault();
+const loginFormHandler = async (event) => {
+  event.preventDefault();
 
-//   // Collect values from the login form
-//   const email = document.querySelector('#email-login').value.trim();
-//   const password = document.querySelector('#password-login').value.trim();
+  // Collect values from the login form
+  const email = document.querySelector('#email-login').value.trim();
+  const password = document.querySelector('#password-login').value.trim();
 
-//   if (email && password) {
-//     // Send a POST request to the API endpoint
-//     const response = await fetch('/api/users/login', {
-//       method: 'POST',
-//       body: JSON.stringify({ email, password }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
+  if (email && password) {
+    // Send a POST request to the API endpoint
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
 
-//     if (response.ok) {
-//       // If successful, redirect the browser to the profile page
-//       document.location.replace('/profile');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   }
-// };
+    if (response.ok) {
+      // If successful, redirect the browser to the dashboard page
+      document.location.replace('/profile');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
 
-// const signupFormHandler = async (event) => {
-//   event.preventDefault();
+const signupFormHandler = async (event) => {
+  event.preventDefault();
 
-//   const name = document.querySelector('#name-signup').value.trim();
-//   const email = document.querySelector('#email-signup').value.trim();
-//   const password = document.querySelector('#password-signup').value.trim();
+    // Collect values from the signup form
+  const email = document.querySelector('#email-signup').value.trim();
+  const password = document.querySelector('#password-signup').value.trim();
+  const firstName = document.querySelector('#firstName-signup').value.trim();
+  const lastName = document.querySelector('#lastName-signup').value.trim();
+  const zip = document.querySelector('#zip-signup').value.trim();
+  const address = document.querySelector('#address-signup').value.trim();
+  const city = document.querySelector('#city-signup').value.trim();
+  const state = document.querySelector('#state-signup').value.trim();
 
-//   if (name && email && password) {
-//     const response = await fetch('/api/users', {
-//       method: 'POST',
-//       body: JSON.stringify({ name, email, password }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
+  function findAndReplace(string, target, replacement) {
+        let i = 0, length = string.length;
+        for (i; i < length; i++) {
+            string = string.replace(target, replacement);
+        }
+        return string;
+    }
+  const formattedAddress = findAndReplace(address, " ", "+");
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert(response.statusText);
-//     }
-//   }
-// };
+  const location_string = `${formattedAddress}+${city}+${state}+${zip}`;
 
-// document
-//   .querySelector('.login-form')
-//   .addEventListener('submit', loginFormHandler);
+  if (name && email && password && firstName && lastName && zip && location_string) {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password, firstName, lastName, zip, location_string }),
+      headers: { 'Content-Type': 'application/json' },
+    });
 
-// document
-//   .querySelector('.signup-form')
-//   .addEventListener('submit', signupFormHandler);
+    if (response.ok) {
+       // If successful, redirect the browser to the dashboard page
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+};
+
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
+
+document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler);
