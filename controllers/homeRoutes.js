@@ -1,18 +1,13 @@
 const router = require('express').Router();
-const { Favor, Offer, Trade, User } = require('../models');
-//For Auth
-//const withAuth = require('../utils/auth');
-
-// router.get('/', function (req, res, next) {
-//   res.render('homePage', { title: 'Express' });
-// });
+const { Favor, Trade, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const favorData = await Favor.findAll({
       include: [
-        { model: User }, { model: Offer }, { model: Trade }
+        { model: User }, { model: Trade }
       ],
     });
 
@@ -28,6 +23,57 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/favor/:id', async (req, res) => {
+  try {
+    const favorData = await Favor.findByPk(req.params.id, {
+      include: [
+        {
+          model: User
+        },
+      ],
+    });
+
+    const favors = favorData.get({ plain: true });
+
+    res.render('profile', {
+      ...favors,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Favor }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('login');
+});
+
 
 
 
