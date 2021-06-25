@@ -24,6 +24,7 @@ Trade.init(
         type: DataTypes.INTEGER,
         allowNull: false,
     }, 
+  },
   {
     sequelize,
     freezeTableName: true,
