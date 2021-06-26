@@ -24,6 +24,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/activityFeed', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const favorData = await Favor.findAll({
+      include: [
+        { model: User }, { model: Trade }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const favors = favorData.map((favor) => favor.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('activityFeed', {
+      favors,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/favor/:id', async (req, res) => {
   try {
     const favorData = await Favor.findByPk(req.params.id, {

@@ -29,3 +29,11 @@ button.nav-link{
   outline: none;
   border:  none;
 }
+
+.bold{
+  font-weight: bold;
+}
+
+.fa-big{
+    font-size: 300px;
+}
