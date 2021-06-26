@@ -47,7 +47,7 @@ const render_skills = () => {
     const cleanlist = splitList.map( word => 
          word.replace(/[^\w\s]/gi, '')
     );
-    console.log(cleanlist);
+  
     let badge = $(this);
    $.each(cleanlist, function(index, value) {
       let newBadge = $(' <span class="badge bg-success" />');
