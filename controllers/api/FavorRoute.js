@@ -3,7 +3,7 @@ const { Favor, User, Trade, Offer } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-router.get('/', async (req, res) => {
+router.get('/activityFeed', async (req, res) => {
     try {
         const favorData = await Favor.findAll({
             include: [{ model: User }, { model: Trade }],
