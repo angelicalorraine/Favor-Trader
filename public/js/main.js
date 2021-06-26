@@ -2,38 +2,8 @@ const render_difficulty = () => {
     const rating = $('body').find("span[data-difficulty]");
     $.each (rating, function() {
       ratingScore = $(this).data("difficulty"); 
-      let display; 
-    if (ratingScore === 5) {
-      display = `<i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>`;
-    } else if (ratingScore === 4) {
-      display = `<i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>`;
-    } else if (ratingScore === 3) {
-      display = `<i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>`;
-    } else if (ratingScore === 2) {
-      display = `<i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>`;
-    } else if (ratingScore === 1) {
-      display = `<i class="fa fa-star" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>
-      <i class="fa fa-star-o" aria-hidden="true"></i>`;
-    }
+      const display = new Array(ratingScore).fill().map(a => `<i class="fa fa-star" aria-hidden="true"></i>`).concat(new Array(5-ratingScore).fill().map(a => `<i class="fa fa-star-o" aria-hidden="true"></i>`)).join('');
+      
       $(this).append(display);
     });
 }

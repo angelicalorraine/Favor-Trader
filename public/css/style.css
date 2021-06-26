@@ -29,3 +29,7 @@ button.nav-link{
   outline: none;
   border:  none;
 }
+
+.bold{
+  font-weight: bold;
+}
