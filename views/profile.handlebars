@@ -1,7 +1,9 @@
 {{#if favors.length}}
 <div class="col-md-6 favor-list">
     <div class="d-flex justify-content-between">
+
         <h3>Your Favors</h3>
+
         <div class="mb-4">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 New Favor
@@ -13,7 +15,11 @@
 
     {{#each favors as |favor| }}
     <div class="card mb-3" style="max-width: 40rem;">
+<<<<<<< Angelica
+
+=======
         <div class="card-header">
+>>>>>>> main
             <h4 class="card-title">{{favor.title}}</h4>
         </div>
 
@@ -21,6 +27,9 @@
             <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span></div>
             <p class="bold">Favor Description</p>
             <p class="card-text">{{favor.description}}</p>
+
+            Zip Code: {{ ../zip }}
+
         </div>
 
 
