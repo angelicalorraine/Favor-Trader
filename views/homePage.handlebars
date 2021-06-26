@@ -1,38 +1,38 @@
 <div class="d-flex flex-column justify-content-center p-2">
-<h1>{{title}}</h1>
-<p>Offers{{title}}</p>
+    <h1>{{title}}</h1>
+    <p>Offers{{title}}</p>
 
 
 
-{{#each favors as |favor| }}
-<div class="card mb-3" style="max-width: 40rem;">
-    <div class="card-header d-flex justify-content-between">
-    <h5>{{ user.first_name}} {{ user.last_name}}</h5>
-    
-    </div>
-    <div class="card-body d-flex justify-content-between align-items-center">
-        <h4 class="card-title">{{favor.title}}</h4>
-        <span class="badge bg-danger">Difficulty: {{ favor.difficulty }}</span>
-
-    </div>
-    
-    <div class="card-body">
-        <p class="card-text">{{favor.description}}</p>
-       Zip Code: {{ user.zip }}
-    </div>
-
-  
-    <div class="card-footer text-muted d-flex justify-content-center">
-        <div class="mx-1">
-            <button type="button" class="btn btn-primary">Comment</button>
+    {{#each favors as |favor| }}
+    <div class="card mb-3" style="max-width: 40rem;">
+        <div class="card-header d-flex justify-content-between">
+            <h5>{{ user.first_name}} {{ user.last_name}}</h5>
         </div>
-        <div class="mx-1">
-            <button type="button" class="btn btn-warning">Apply for Trade</button>
+        <div class="skill-badges">
+            <span data-skills="{{user.skills}}" class="badges"></span>
         </div>
-  
+        <div class="card-body d-flex justify-content-between align-items-center">
+
+            <h4 class="card-title">{{favor.title}}</h4>
+            <span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span>
+        </div>
+
+        <div class="card-body">
+            <p class="card-text">{{favor.description}}</p>
+
+            <i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.zip }}
+            {{!-- <iframe width="600" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWUXFtnQLy-H8kSJawAsZU2b-uBkpmacE&q={{user.location_string}}">
+            </iframe> --}}
+        </div>
+
+
+        <div class="card-footer text-muted d-flex justify-content-center">
+            <div class="w-100">
+                <button type="button" class="btn btn-warning w-100">Trade</button>
+            </div>
+
+        </div>
     </div>
-</div>
-{{/each}}
-
-
+    {{/each}}
 </div>
