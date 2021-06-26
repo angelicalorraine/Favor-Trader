@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "clean": "rm -rf node_modules && npm i",
-    "seed": "node seeds/seed.js"
+    "seed": "node seeds/seed.js",
+    "heroku-postbuild": "npm run seeds"
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.1.16",
