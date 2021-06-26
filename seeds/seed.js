@@ -8,9 +8,20 @@ const tradeData = require('./tradeData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData);
-  const favors = await Favor.bulkCreate(favorData);
-  const trades = await Trade.bulkCreate(tradeData);
+  const users = await User.bulkCreate(userData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  for (const favor of favorData) {
+    await Favor.create({
+      ...favor,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
+
+
 
   process.exit(0);
 };
