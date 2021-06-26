@@ -1,7 +1,7 @@
 {{#if favors.length}}
 <div class="col-md-6 favor-list">
     <div class="d-flex justify-content-between">
-        <h3>Your favors</h3>
+        <h3>{{first_name}}'s Favors</h3>
         <div class="mb-4">
             <button class="btn btn-success">Add Favor</button>
         </div>
@@ -11,7 +11,7 @@
     {{#each favors as |favor| }}
     <div class="card mb-3" style="max-width: 40rem;">
         <div class="card-header d-flex justify-content-between">
-            <h5>{{ user.first_name}} {{ user.last_name}}</h5>
+            
 
         </div>
         <div class="card-body d-flex justify-content-between align-items-center">
@@ -22,7 +22,7 @@
 
         <div class="card-body">
             <p class="card-text">{{favor.description}}</p>
-            Zip Code: {{ user.zip }}
+            Zip Code: {{ ../zip }}
         </div>
 
 
