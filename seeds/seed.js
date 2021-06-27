@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
 const { User, Favor, Trade } = require('../models');
 
-const userData = require('./userData.json');
+const userData = require('./userData.json').map(a => ({...a, skills: JSON.stringify(a.skills)}));
 const favorData = require('./favorData.json');
 const tradeData = require('./tradeData.json');
 

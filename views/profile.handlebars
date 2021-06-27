@@ -1,9 +1,7 @@
-{{#if favors.length}}
 <div class="col-md-6 favor-list">
+    <h3>Welcome, {{first_name}} {{last_name}}!</h3>
     <div class="d-flex justify-content-between">
-
-        <h3>Your Favors</h3>
-
+        <h5>Your Favors</h5>
         <div class="mb-4">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 New Favor
@@ -11,39 +9,33 @@
 
         </div>
     </div>
-
+    {{#if favors.length}}
 
     {{#each favors as |favor| }}
     <div class="card mb-3" style="max-width: 40rem;">
-<<<<<<< Angelica
-
-=======
-        <div class="card-header">
->>>>>>> main
-            <h4 class="card-title">{{favor.title}}</h4>
-        </div>
-
+        <h4 class="card-title p-4">{{favor.title}}</h4>
         <div class="card-body">
             <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span></div>
             <p class="bold">Favor Description</p>
             <p class="card-text">{{favor.description}}</p>
-
-            Zip Code: {{ ../zip }}
-
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
         </div>
 
 
         <div class="card-footer text-muted d-flex justify-content-center">
-            <div class="mx-1">
+            {{!-- <div class="mx-1">
                 <button type="button btn-primary" data-id="{{favor.id}}" class=" btn btn-primary">Edit</button>
-            </div>
-            <div class="mx-1">
-                <button class="btn btn-danger" data-id="{{favor.id}}">DELETE</button>
+            </div> --}}
+            <div class="mx-1 w-100">
+                <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
             </div>
 
         </div>
     </div>
     {{/each}}
+
+    {{else}}
+    <p>You don't have any favors.</p>
 </div>
 {{/if}}
 </div>
@@ -53,43 +45,42 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create a New Favor</h5>
+                <button type="button" class="close nav-link" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form class="form new-favor-form">
                 <div class="modal-body">
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <h3>Create a New Favor</h3>
-                            <div class="form-group">
-                                <label for="favor-title">Title</label>
-                                <input class="form-input form-control" type="text" id="favor-title" name="favor-title" />
-                            </div>
-                            <div class="form-group">
-                                <label for="favor-desc">Description</label>
-                                <textarea class="form-input form-control" id="favor-desc" name="favor-desc"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="favor-difficulty">Difficulty Level (1-5)</label>
-                                <select class="form-input  form-control" id="favor-difficulty" name="favor-difficulty">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-
+                        <div class="form-group">
+                            <label for="favor-title">Title</label>
+                            <input class="form-input form-control" type="text" id="favor-title" name="favor-title" />
                         </div>
+                        <div class="form-group">
+                            <label for="favor-desc">Description</label>
+                            <textarea class="form-input form-control" id="favor-desc" name="favor-desc"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="favor-difficulty">Difficulty Level (1-5)</label>
+                            <select class="form-input  form-control" id="favor-difficulty" name="favor-difficulty">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn w-100 btn-success">Create</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script src="/js/profile.js"></script>

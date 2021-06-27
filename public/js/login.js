@@ -1,3 +1,6 @@
+const signupBtn = $('#signup-btn');
+const loginBtn = $('#login-btn');
+
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -24,12 +27,11 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
-
   // Collect values from the signup form
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  const firstName = document.querySelector('#firstName-signup').value.trim();
-  const lastName = document.querySelector('#lastName-signup').value.trim();
+  const first_name = document.querySelector('#firstName-signup').value.trim();
+  const last_name = document.querySelector('#lastName-signup').value.trim();
   const zip = document.querySelector('#zip-signup').value.trim();
   const address = document.querySelector('#address-signup').value.trim();
   const city = document.querySelector('#city-signup').value.trim();
@@ -46,16 +48,16 @@ const signupFormHandler = async (event) => {
 
   const location_string = `${formattedAddress}+${city}+${state}+${zip}`;
 
-  if (name && email && password && firstName && lastName && zip && location_string) {
-    const response = await fetch('/api/users', {
+  if (email && password && first_name && last_name && zip && location_string) {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password, firstName, lastName, zip, location_string }),
+      body: JSON.stringify({ email, password, first_name, last_name, zip, location_string }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
-      document.location.replace('/dashboard');
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
@@ -69,3 +71,13 @@ document
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
+signupBtn.on('click', function() {
+  $('#signup-form').show();
+  $('#login-form').hide();
+});
+
+loginBtn.on('click', function() {
+  $('#login-form').show();
+  $('#signup-form').hide();
+});
