@@ -36,12 +36,18 @@ router.get('/activityFeed', async (req, res) => {
     // Serialize data so the template can read it
     const favors = favorData.map((favor) => favor.get({ plain: true }));
 
+    // const favors = favorData.map((favor) => {
+    //   const favorSerial = favor.get({ plain: true });
+    //   return favorSerial;
+    // });
+
     // Pass serialized data and session flag into template
     res.render('activityFeed', {
       favors,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
