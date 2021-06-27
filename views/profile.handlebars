@@ -13,32 +13,31 @@
 
     {{#each favors as |favor| }}
     <div class="card mb-3" style="max-width: 40rem;">
-        <div class="card-header">
-            <h4 class="card-title">{{favor.title}}</h4>
-        </div>
-
-        <div class="card-body">
-            <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span></div>
-            <p class="bold">Favor Description</p>
-            <p class="card-text">{{favor.description}}</p>
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
-        </div>
-
-
-        <div class="card-footer text-muted d-flex justify-content-center">
-            {{!-- <div class="mx-1">
-                <button type="button btn-primary" data-id="{{favor.id}}" class=" btn btn-primary">Edit</button>
-            </div> --}}
-            <div class="mx-1 w-100">
-                <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
-            </div>
-
-        </div>
+        <h4 class="card-title">{{favor.title}}</h4>
     </div>
-    {{/each}}
 
-    {{else}}
-    <p>You don't have any favors.</p>
+    <div class="card-body">
+        <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span></div>
+        <p class="bold">Favor Description</p>
+        <p class="card-text">{{favor.description}}</p>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
+    </div>
+
+
+    <div class="card-footer text-muted d-flex justify-content-center">
+        {{!-- <div class="mx-1">
+            <button type="button btn-primary" data-id="{{favor.id}}" class=" btn btn-primary">Edit</button>
+        </div> --}}
+        <div class="mx-1 w-100">
+            <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
+        </div>
+
+    </div>
+</div>
+{{/each}}
+
+{{else}}
+<p>You don't have any favors.</p>
 </div>
 {{/if}}
 </div>
