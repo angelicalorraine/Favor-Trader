@@ -96,6 +96,6 @@ signupBtn.on('click', function () {
 });
 
 loginBtn.on('click', function () {
-  $('#login-form').show();
-  $('#signup-form').hide();
+  $('#login').show();
+  $('#signup').hide();
 });
