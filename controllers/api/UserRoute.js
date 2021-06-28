@@ -6,16 +6,14 @@ router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
 
-        // Set up sessions with a 'loggedIn' variable set to `true`
         req.session.save(() => {
             req.session.user_id = userData.id;
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
 
             res.status(200).json(userData);
         });
     } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 });
 
@@ -52,41 +50,31 @@ router.post('/login', async (req, res) => {
 });
 
 
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    } else {
-        res.status(404).end();
-    }
-});
+// router.get('/', async (req, res) => {
+//     try {
+//         const userData = await User.findAll({
+//             include: [{ model: Favor }],
+//         });
+//         res.status(200).json(userData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
-router.get('/', async (req, res) => {
-    try {
-        const userData = await User.findAll({
-            include: [{ model: Favor }],
-        });
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-router.get('/:id', async (req, res) => {
-    try {
-        const userData = await User.findByPk(req.params.id, {
-            include: [{ model: Favor }],
-        });
-        if (!userData) {
-            res.status(404).json({ message: 'No user found with that id!' });
-            return;
-        }
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// router.get('/:id', async (req, res) => {
+//     try {
+//         const userData = await User.findByPk(req.params.id, {
+//             include: [{ model: Favor }],
+//         });
+//         if (!userData) {
+//             res.status(404).json({ message: 'No user found with that id!' });
+//             return;
+//         }
+//         res.status(200).json(userData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 router.post('/logout', (req, res) => {
     if (req.session.logged_in) {

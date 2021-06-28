@@ -40,8 +40,6 @@ const signupFormHandler = async (event) => {
     return skillsA;
 
   }
-
-
   // Collect values from the signup form
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -71,24 +69,28 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ email, password, first_name, last_name, zip, location_string, skills }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response);
 
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
-
     }
   }
 };
+
+
+document
+  .querySelector('signup-form')
+  .addEventListener('submit', signupFormHandler);
+
 
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+
 
 signupBtn.on('click', function () {
   $('#signup-form').show();
@@ -96,6 +98,6 @@ signupBtn.on('click', function () {
 });
 
 loginBtn.on('click', function () {
-  $('#login-form').show();
-  $('#signup-form').hide();
+  $('#login').show();
+  $('#signup').hide();
 });

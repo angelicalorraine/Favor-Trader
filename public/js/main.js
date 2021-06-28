@@ -7,18 +7,14 @@ const render_difficulty = () => {
   });
 }
 
-
-const render_skills = () => {
+const render_skillsnew = () => {
   const badgeAreas = $('.badges');
   $.each(badgeAreas, function () {
     const skillList = $(this).data("skills");
-    const splitList = skillList.split(',');
-    const cleanlist = splitList.map(word =>
-      word.replace(/[^\w\s]/g, '')
-    );
+    console.log(skillList);
 
     let badge = $(this);
-    $.each(cleanlist, function (index, value) {
+    $.each(skillList, function (index, value) {
       let newBadge = $(' <span class="badge bg-success" />');
       newBadge.text(value);
 
@@ -26,8 +22,31 @@ const render_skills = () => {
     });
 
   });
-
 }
+
+
+// const render_skills = () => {
+//   const badgeAreas = $('.badges');
+//   $.each(badgeAreas, function () {
+//     const skillList = $(this).data("skills");
+//     const splitList = skillList.split(',');
+//     const cleanlist = splitList.map(word =>
+//       word.replace(/[^\w\s]/g, '')
+//     );
+
+//     let badge = $(this);
+//     $.each(cleanlist, function (index, value) {
+//       let newBadge = $(' <span class="badge bg-success" />');
+//       newBadge.text(value);
+
+//       $(badge).closest('div').append(newBadge);
+//     });
+
+//   });
+
+// }
+
+
 
 
 
@@ -36,5 +55,6 @@ const render_skills = () => {
 
 $(document).ready(function () {
   render_difficulty();
-  render_skills();
+  // render_skills();
+  render_skillsnew();
 });

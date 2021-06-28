@@ -78,6 +78,25 @@ const delButtonHandler = async (event) => {
   }
 };
 
+
+
+const render_skillsprofile = () => {
+  const badgeAreas = $('.badges');
+  $.each(badgeAreas, function () {
+    const skillList = $(this).data("skills");
+
+    let badge = $(this);
+    $.each(skillList, function (index, value) {
+      let newBadge = $(' <span class="badge bg-success" />');
+      newBadge.text(value);
+
+      $(badge).closest('div').append(newBadge);
+    });
+
+  });
+
+}
+
 document
   .querySelector('.new-favor-form')
   .addEventListener('submit', newFormHandler);
@@ -91,3 +110,7 @@ document
   .querySelector('.edit-favor-form')
   .addEventListener('submit', updateButtonHandler);
 
+$(document).ready(function () {
+
+  render_skillsprofile();
+});
