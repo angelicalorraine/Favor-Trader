@@ -25,8 +25,23 @@ const loginFormHandler = async (event) => {
   }
 };
 
+
+
 const signupFormHandler = async (event) => {
   event.preventDefault();
+
+  const skills1 = [];
+  $.each($("input[name='skillOption']:checked"), function () {
+    skills1.push($(this).val());
+  });
+
+  function skillsArray(skills1) {
+    const skillsA = JSON.stringify(skills1);
+    return skillsA;
+
+  }
+
+
   // Collect values from the signup form
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -36,6 +51,8 @@ const signupFormHandler = async (event) => {
   const address = document.querySelector('#address-signup').value.trim();
   const city = document.querySelector('#city-signup').value.trim();
   const state = document.querySelector('#state-signup').value.trim();
+  const skills = skillsArray(skills1);
+  console.log(skills);
 
   function findAndReplace(string, target, replacement) {
     let i = 0, length = string.length;
@@ -48,10 +65,10 @@ const signupFormHandler = async (event) => {
 
   const location_string = `${formattedAddress}+${city}+${state}+${zip}`;
 
-  if (email && password && first_name && last_name && zip && location_string) {
-    const response = await fetch('/api/users/login', {
+  if (email && password && first_name && last_name && zip && location_string && skills) {
+    const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ email, password, first_name, last_name, zip, location_string }),
+      body: JSON.stringify({ email, password, first_name, last_name, zip, location_string, skills }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -60,6 +77,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert(response.statusText);
+
     }
   }
 };
@@ -72,12 +90,12 @@ document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
 
-signupBtn.on('click', function() {
+signupBtn.on('click', function () {
   $('#signup-form').show();
   $('#login-form').hide();
 });
 
-loginBtn.on('click', function() {
+loginBtn.on('click', function () {
   $('#login-form').show();
   $('#signup-form').hide();
 });
