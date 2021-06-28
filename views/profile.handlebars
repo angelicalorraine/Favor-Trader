@@ -12,10 +12,13 @@
     {{#if favors.length}}
 
     {{#each favors as |favor| }}
-    <div class="card mb-3" style="max-width: 40rem;">
-        <h4 class="card-title p-4">{{favor.title}}</h4>
+    <div class="card mb-3" >
+      <div class="card-title d-flex justify-content-around align-items-center"> <h4 class="p-4">{{favor.title}}</h4>
+                    <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span>
+                    </div>
+                    </div>
         <div class="card-body">
-            <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span></div>
+
             <p class="bold">Favor Description</p>
             <p class="card-text">{{favor.description}}</p>
             <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
@@ -23,15 +26,67 @@
 
 
         <div class="card-footer text-muted d-flex justify-content-center">
-            {{!-- <div class="mx-1">
-                <button type="button btn-primary" data-id="{{favor.id}}" class=" btn btn-primary">Edit</button>
-            </div> --}}
-            <div class="mx-1 w-100">
+
+            <div class="mx-1 w-50">
+                <button class="btn btn-warning w-100" data-toggle="modal" data-target="#editmodal" data-id="{{favor.id}}">EDIT</button>
+            </div>
+
+            <div class="mx-1 w-50 delete">
                 <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
             </div>
 
         </div>
     </div>
+
+
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Favor</h5>
+                    <button type="button" class="close nav-link" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form data-id="{{favor.id}}" class="form edit-favor-form">
+                    <div class="modal-body">
+                        <div class="row mt-4">
+                            <div class="form-group ">
+                                <label for="favor-title">Title </label>
+                                <input class="form-input form-control mb-3" type="text" id="favor-title" name="favor-title"
+                                    value="{{favor.title}}">
+                                <div class="form-group">
+                                    <label for="favor-desc">Description</label>
+                                    <input class="form-input form-control mb-3" type="text" id="favor-description"
+                                        name="favor-description" value="{{favor.description}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="favor-difficulty">Difficulty Level (1-5)</label>
+                                    <select class="form-input  form-control" id="favor-difficulty" name="favor-difficulty">
+    
+                                        <option>{{favor.difficulty}}</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-id="{{favor.id}}" type="submit" class="btn w-100 btn-success">Update</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
     {{/each}}
 
     {{else}}
@@ -41,7 +96,11 @@
 </div>
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -55,7 +114,7 @@
                     <div class="row mt-4">
                         <div class="form-group">
                             <label for="favor-title">Title</label>
-                            <input class="form-input form-control" type="text" id="favor-title" name="favor-title" />
+                            <input class="form-input form-control" type="text" id="favor-title" name="favor-title"  />
                         </div>
                         <div class="form-group">
                             <label for="favor-desc">Description</label>
@@ -82,5 +141,8 @@
         </div>
     </div>
 </div>
+
+
+
 
 <script src="/js/profile.js"></script>
