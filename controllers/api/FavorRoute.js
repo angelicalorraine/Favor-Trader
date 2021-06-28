@@ -45,6 +45,26 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const newFavor = await Favor.update({
+            title: req.body.title,
+            description: req.body.description,
+            difficulty: req.body.difficulty
+        },
+            {
+                where: {
+                    id: req.params.id,
+                    user_id: req.session.user_id,
+                },
+            }
+        );
+        res.status(200).json(newFavor);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {

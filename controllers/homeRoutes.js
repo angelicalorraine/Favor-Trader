@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/activityFeed', async (req, res) => {
+router.get('/activityFeed', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const favorData = await Favor.findAll({
