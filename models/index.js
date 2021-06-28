@@ -18,5 +18,6 @@ Trade.hasMany(Favor, {
 Favor.belongsTo(Trade, {
   foreignKey: 'trade_id'
 });
+
   
 module.exports = { User, Favor, Trade };

@@ -111,6 +111,5 @@ document
   .addEventListener('submit', updateButtonHandler);
 
 $(document).ready(function () {
-
   render_skillsprofile();
 });
