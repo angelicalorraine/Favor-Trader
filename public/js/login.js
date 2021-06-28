@@ -81,9 +81,6 @@ const signupFormHandler = async (event) => {
 };
 
 
-
-
-
 signupBtn.on('click', function () {
   $('#signup-form').show();
   $('#login-form').hide();
@@ -102,6 +99,3 @@ document
 document
   .querySelector('signup-form')
   .addEventListener('submit', signupFormHandler);
-
-
-
