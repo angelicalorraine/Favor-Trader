@@ -81,17 +81,6 @@ const signupFormHandler = async (event) => {
 };
 
 
-document
-  .querySelector('signup-form')
-  .addEventListener('submit', signupFormHandler);
-
-
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
-
-
 signupBtn.on('click', function () {
   $('#signup-form').show();
   $('#login-form').hide();
@@ -101,3 +90,12 @@ loginBtn.on('click', function () {
   $('#login').show();
   $('#signup').hide();
 });
+
+
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
+
+document
+  .querySelector('signup-form')
+  .addEventListener('submit', signupFormHandler);
