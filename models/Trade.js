@@ -24,6 +24,14 @@ Trade.init(
       type: DataTypes.INTEGER,
       allowNull: false,
   },
+   buyer_item: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    seller_item: {
+      type: DataTypes.STRING,
+      allowNull: false,
+  },
 },
     
   {
