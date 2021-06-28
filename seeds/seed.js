@@ -20,7 +20,7 @@ const seedDatabase = async () => {
     });
   }
 
-
+ const trades = await Trade.bulkCreate(tradeData);
 
 
   process.exit(0);

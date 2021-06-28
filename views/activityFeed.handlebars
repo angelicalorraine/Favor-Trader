@@ -32,10 +32,45 @@
 
         <div class="card-footer text-muted d-flex justify-content-center">
             <div class="w-100">
-                <button type="button" class="btn btn-warning w-100">Trade</button>
+                <button type="button" data-favor="{{favor.title}}" data-user="{{user.id}}" data-seller="{{ user.first_name}} {{ user.last_name}}" data-id="{{favor.id}}" class="btn btn-warning w-100 tradeModalLaunch">Trade</button>
             </div>
 
         </div>
     </div>
     {{/each}}
 </div>
+
+<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tradeModalTitle">Favor Trade</h5>
+                <button type="button" class="close nav-link" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form trade-form">
+                <div class="modal-body">
+                    <h5 class="p-3">Trading with <span class="underline" id="seller-name"></span> for <span class="underline" id="seller-item-name"></span>.</h5>
+                    <div class="row mt-4">
+                        <div class="form-group">
+                            <label for="item-list">Choose your favor to trade</label>
+                            <select class="form-input form-control" id="item-list" name="item-list">
+                                {{#each favors as |favor| }}
+                                <option>{{favor.title}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="trade-button" data-favor="" data-user="" type="submit" class="btn w-100 btn-success">Trade</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/trade.js"></script>
