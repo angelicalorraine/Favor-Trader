@@ -28,7 +28,7 @@
         </div>
 
 
-        <div style="display: none;" id="signup-form" class="col-md-8">
+        <div style="display: hide" id="signup-form" class="col-md-8">
             <form class="signup-form p-3">
                 <h2 class="pb-3">Sign Up</h2>
 
@@ -71,6 +71,21 @@
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="zip-signup" placeholder="Zip">
                     </div>
+                </div>
+
+                {{!-- Check Boxes --}}
+                <h4 class="p-3">Skills</h2>
+                <div class="form-check form-check-inline" id="skills">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Home Improvement" name="skillOption">
+                    <label class="form-check-label" for="inlineCheckbox1">Home Improvement</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Health & Wellness" name="skillOption">
+                    <label class="form-check-label" for="inlineCheckbox2">Health & Wellness</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Home Organization" name="skillOption">
+                    <label class="form-check-label" for="inlineCheckbox3">Home Organization</label>
                 </div>
 
                 <div class="row m-4">
