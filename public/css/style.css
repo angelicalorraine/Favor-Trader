@@ -45,6 +45,7 @@ button.nav-link {
 
 .fa-big {
   font-size: 300px;
+  overflow: hidden;
 }
 
 .far {
@@ -53,10 +54,66 @@ button.nav-link {
   -webkit-text-fill-color: transparent;
 }
 
+.navbar {
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 121, 100),
+    rgba(6, 187, 223, 100)
+  ) !important;
+}
+
 .icon-small {
-  font-size: 200px;
+  font-size: 250px;
 }
 
 .info {
   text-align: center;
+}
+
+.tagline {
+  text-align: center;
+  margin: 5px 5rem !important;
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+
+.landButton {
+  margin: 5px 30rem !important;
+}
+
+.trade {
+  font-size: 20px;
+}
+
+.tradeCard {
+  padding: 10px;
+}
+
+.profile {
+  margin-left: 10rem;
+  margin-right: 15rem;
+}
+
+.getstarted {
+  color: white;
+}
+
+.landInfo {
+  font-size: 18px;
+  padding: 20px 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.bulletInfo {
+  font-size: 18px;
+  padding: 10px 20px;
+  line-height: 30px;
+}
+
+.bullets {
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
