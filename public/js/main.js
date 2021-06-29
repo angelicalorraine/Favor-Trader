@@ -1,3 +1,4 @@
+// Render difficulty stars
 const render_difficulty = () => {
   const rating = $('body').find("span[data-difficulty]");
   $.each(rating, function () {
@@ -7,6 +8,7 @@ const render_difficulty = () => {
   });
 }
 
+// Render skills badges
 const render_skillsnew = () => {
   const badgeAreas = $('.badges');
   $.each(badgeAreas, function () {
