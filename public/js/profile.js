@@ -88,6 +88,7 @@ const render_skillsprofile = () => {
 }
 
 // Render trade history onto page
+
 // jQuery(document).ready(function ($) {
 //   const tradeArea = $('#trade-history');
 //   const emptyState = $('<p>' + 'You have no trade history.' + '</p>');
@@ -110,6 +111,7 @@ const render_skillsprofile = () => {
 //   });
 
 // });
+
 
 // Render skills badges
 // $(document).ready(function () {
@@ -144,9 +146,12 @@ jQuery(document).ready(function ($) {
       if (ids.buyer_id === user_id || ids.seller_id === user_id) {
         const date = new Date(ids.date_traded);
         const formattedDate = (((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + date.getFullYear());
-        const title = $('<div class="card-header   pr-4"> <h6 class="card-title">' + 'Date of Trade: ' + formattedDate + '</h6></div>');
-        const card = $('<div class="card tradeCard border-primary mb-3 p-2 favor-list" style="width: 30rem;"/>').append(title);
-        const favor = $('<p class="trade">' + 'Your favor "' + ids.buyer_item + '" <br> was traded for "' + ids.seller_item + '"</p>');
+
+
+
+        const title = $('<div class="card-header card-title pr-4"> <h6>' + 'Date of trade: ' + formattedDate + '</h6></div>');
+        const card = $('<div class="card tradeCard border-primary mb-3 p-2 favor-list " style="max-width: 40rem;"/>').append(title);
+        const favor = $('<p class="trade">' + 'Your Favor Trade: <br> "' + ids.buyer_item + '" <br> was traded for "' + ids.seller_item + '"</p>');
 
         const body = $('<div class="card-body"/>').append(favor);
         card.append(body);
