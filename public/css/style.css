@@ -75,3 +75,11 @@ button.nav-link {
   position: relative;
   clear: both;
 }
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .map{
+    max-width: 450px;
+    overflow: hidden;
+  }
+}
