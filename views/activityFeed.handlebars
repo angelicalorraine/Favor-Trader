@@ -8,11 +8,12 @@
 
     {{#each favors as |favor| }}
     <div class="card mb-3" style="max-width: 40rem;">
-        <div class="card-header d-flex justify-content-between">
-            <h5>{{ user.first_name}} {{ user.last_name}}</h5>
+        <div class="card-header d-flex align-items-center justify-content-between ">
+           <div class="name"><h5>{{ user.first_name}} {{ user.last_name}}</h5>
         </div>
-        <div class="skill-badges mt-3">
+        <div class="skill-badges">
             <span data-skills="{{user.skills}}" class="badges"></span>
+        </div>
         </div>
         {{!-- {{#each user.skills as |skill|}}
         <h1>{{skill}}</h1>

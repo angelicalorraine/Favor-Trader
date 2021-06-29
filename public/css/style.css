@@ -1,13 +1,22 @@
-h1, h2, h3, h4, h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
   cursor: default;
+  margin-bottom: 0rem;
 }
 
 .navbar-collapse {
   justify-content: flex-end;
 }
 
-.badge{
+.badge {
   font-size: 1rem;
+}
+
+.bg-secondary {
+  background-color: #f7f7f7 !important;
 }
 
 .skill-badges {
@@ -15,25 +24,39 @@ h1, h2, h3, h4, h5{
 }
 
 .skill-badges .badge {
-    font-size: .9rem;
-    font-weight: lighter;
-    margin: 1px;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  margin: 1px;
 }
 
 .text-right {
   text-align: right;
 }
 
-button.nav-link{
+button.nav-link {
   background-color: transparent;
   outline: none;
-  border:  none;
+  border: none;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
-.fa-big{
-    font-size: 300px;
+.fa-big {
+  font-size: 300px;
+}
+
+.far {
+  background: -webkit-linear-gradient(#00d4ff, #090979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon-small {
+  font-size: 200px;
+}
+
+.info {
+  text-align: center;
 }
