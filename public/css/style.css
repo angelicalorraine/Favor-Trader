@@ -1,33 +1,39 @@
-header,
-.project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+h1, h2, h3, h4, h5{
+  cursor: default;
 }
 
-.no-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
+.navbar-collapse {
+  justify-content: flex-end;
 }
 
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.badge{
+  font-size: 1rem;
 }
 
-.dollar-amount {
-  color: #056605;
+.skill-badges {
+  padding: 5px 10px;
+}
+
+.skill-badges .badge {
+    font-size: .9rem;
+    font-weight: lighter;
+    margin: 1px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+button.nav-link{
+  background-color: transparent;
+  outline: none;
+  border:  none;
+}
+
+.bold{
   font-weight: bold;
-  margin-left: -5px;
 }
 
-p {
-  font-size: 20px;
-}
-
-.btn {
-  padding: 10px !important;
+.fa-big{
+    font-size: 300px;
 }

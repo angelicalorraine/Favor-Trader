@@ -1,39 +1,206 @@
-<form class="form login-form">
-    <label for="username-login">Email</label>
-    <input type="text" id="username-login" />
+<div class="container p-3">
+    <div class="row justify-content-center">
 
-    <label for="password-login">Password</label>
-    <input type="password" id="password-login" />
 
-    <button type="submit">Login</button>
-</form>
+        <div id="login-form" class="col-md-8">
+            <form class="login-form p-3 mr-2">
+                <h2 class="pb-3">Login</h2>
 
-<form class="form signup-form">
-    <label for="username-signup">Email</label>
-    <input type="text" id="username-signup" />
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control form-input" type="text" id="email-login" placeholder="Email">
+                    </div>
+                </div>
 
-    <label for="password-signup">Password</label>
-    <input type="password" id="password-signup" />
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control form-input" type="password" id="password-login"
+                            placeholder="Password">
+                    </div>
+                </div>
 
-    <label for="firstName-signup">First Name</label>
-    <input type="text" id="firstName-signup" />
+                <div class="row m-4">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+                <div class="row">
+                    <button id="signup-btn" class="nav-link">Don't have an account? Sign up.</button>
+                </div>
+            </form>
+        </div>
 
-    <label for="lastName-signup">Last Name</label>
-    <input type="text" id="lastName-signup" />
 
-    <label for="address-signup">Street Address</label>
-    <input type="text" id="address-signup" />
 
-    <label for="city-signup">City</label>
-    <input type="text" id="city-signup" />
+        <div style="display: none" id="signup-form" class="col-md-8">
 
-    <label for="state-signup">State</label>
-    <input type="text" id="state-signup" maxlength="2" />
+            <form class="signup-form p-3">
+                <h2 class="pb-3">Sign Up</h2>
 
-    <label for="zip-signup">Zip Code</label>
-    <input type="text" id="zip-signup" maxlength="5" />
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="firstName-signup" placeholder="First name">
+                    </div>
 
-    <button type="submit">Sign Up</button>
-</form>
+                    <div class="col">
+                        <input type="text" class="form-control" id="lastName-signup" placeholder="Last name">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="email-signup" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="password-signup" placeholder="password">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="address-signup" placeholder="Address">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="city-signup" placeholder="City">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="state-signup" placeholder="State">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="zip-signup" placeholder="Zip">
+                    </div>
+                </div>
+
+                {{!-- Check Boxes --}}
+                <h4 class="p-3">Skills</h2>
+                    <div class="row justify-content-between">
+                        <div class="col-sm-5 mx-2">
+                            <div class="form-check form-check-inline mb-2" id="skills">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                    value="Home Improvement" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox1">Home Improvement</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Carpentry"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox2"> Carpentry </label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                    value="Organization" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox3">Organization</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Gardening"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox4"> Gardening</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                                    value="Repair & Maintenance" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox5">Repair & Maintenance</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="Plumbing"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox6">Plumbing <br></label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="Automotive"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox7">Automotive</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="Photography"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox8">Photography</label>
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-5 mx-2">
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox9" value="Accounting"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox9">Accounting</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox10"
+                                    value="Health & Wellness" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox10">Health & Wellness</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox11"
+                                    value="Cook" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox11">Cook</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox12" value="Accounting"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox12">Accounting</label>
+                            </div>
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox13"
+                                    value="Design & Web" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox13">Design & Web</label>
+                            </div>
+
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox14"
+                                    value="Event Planning" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox14">Event Planning</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox15"
+                                    value="Errands & Basic Tasks" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox15">Errands & Basic Tasks</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox16" value="Beauty"
+                                    name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox16">Beauty</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox17"
+                                    value="Lessons/Tutoring" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox17">Lessons/Tutoring</label>
+                            </div>
+
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox17"
+                                    value="Care Giving" name="skillOption">
+                                <label class="form-check-label" for="inlineCheckbox18">Care Giving</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row m-4">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                    <div class="row">
+                        <button id="login-btn" class="nav-link">Already have an account? Login.</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script src="./js/login.js"></script>

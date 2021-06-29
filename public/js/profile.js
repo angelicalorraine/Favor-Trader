@@ -1,47 +1,115 @@
-// const newFormHandler = async (event) => {
-//   event.preventDefault();
+const newFormHandler = async (event) => {
+  event.preventDefault();
 
-//   const name = document.querySelector('#project-name').value.trim();
-//   const needed_funding = document.querySelector('#project-funding').value.trim();
-//   const description = document.querySelector('#project-desc').value.trim();
+  const title = document.querySelector('#favor-title').value.trim();
+  const description = document.querySelector('#favor-desc').value.trim();
+  const difficulty = $('#favor-difficulty').children("option:selected").val();
+  console.log(title);
+  console.log(description);
+  console.log(difficulty);
 
-//   if (name && needed_funding && description) {
-//     const response = await fetch(`/api/projects`, {
-//       method: 'POST',
-//       body: JSON.stringify({ name, needed_funding, description }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+  if (title && description && difficulty) {
+    const response = await fetch(`/api/favors`, {
+      method: 'POST',
+      body: JSON.stringify({ title, description, difficulty }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to create project');
-//     }
-//   }
-// };
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to create project');
+    }
+  }
+};
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
 
-//     const response = await fetch(`/api/projects/${id}`, {
-//       method: 'DELETE',
-//     });
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to delete project');
-//     }
-//   }
-// };
 
-// document
-//   .querySelector('.new-project-form')
-//   .addEventListener('submit', newFormHandler);
+const updateButtonHandler = async (event) => {
+  event.preventDefault();
 
-// document
-//   .querySelector('.project-list')
-//   .addEventListener('click', delButtonHandler);
+  const title = $(event.target).closest('form').find('#favor-title').val();
+
+  const description = $(event.target).closest('form').find('#favor-description').val();
+
+  const difficulty = $(event.target).closest('form').find('#favor-difficulty').val();
+  const id = event.target.getAttribute('data-id');
+  console.log(title);
+  console.log(description);
+  console.log(difficulty);
+  console.log(id);
+
+  if (title && description && difficulty) {
+    const response = await fetch(`/api/favors/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ title, description, difficulty }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to update favor');
+    }
+  }
+
+};
+
+
+
+const delButtonHandler = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+
+    const response = await fetch(`/api/favors/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to delete project');
+    }
+  }
+};
+
+
+
+const render_skillsprofile = () => {
+  const badgeAreas = $('.badges');
+  $.each(badgeAreas, function () {
+    const skillList = $(this).data("skills");
+
+    let badge = $(this);
+    $.each(skillList, function (index, value) {
+      let newBadge = $(' <span class="badge bg-success" />');
+      newBadge.text(value);
+
+      $(badge).closest('div').append(newBadge);
+    });
+
+  });
+
+}
+
+document
+  .querySelector('.new-favor-form')
+  .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('.delete')
+  .addEventListener('click', delButtonHandler);
+
+
+document
+  .querySelector('.edit-favor-form')
+  .addEventListener('submit', updateButtonHandler);
+
+$(document).ready(function () {
+  render_skillsprofile();
+});

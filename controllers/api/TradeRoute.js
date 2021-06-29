@@ -32,7 +32,16 @@ router.get('/:id', async (req, res) => {
 
 // CREATE a
 router.post('/', async (req, res) => {
+try {
+    const newTrade = await Trade.create({
+      ...req.body,
+      buyer_id: req.session.user_id,
+    });
 
+    res.status(200).json(newTrade);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 // DELETE a
