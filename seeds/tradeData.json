@@ -1,15 +1,15 @@
 [
     {  
         "buyer_id": 5,
-        "buyer_item": "Install Ring doorbell",
-        "seller_item": "Fixing broken sprinkler system",
+        "buyer_item": "House Sitting",
+        "seller_item": "Pet Grooming",
         "seller_id": 3,
         "date_traded": "06/21/2021"
     },
     {   
         "buyer_id": 1,
-        "buyer_item": "Babysitting my 8 year old",
-        "seller_item": "House cleaning",
+        "buyer_item": "Teach Me to Play Guitar",
+        "seller_item": "Clean Garage",
         "seller_id": 4,
         "date_traded": "06/22/2021"
     }
