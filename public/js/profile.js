@@ -106,9 +106,9 @@ document
   .querySelector('.edit-favor-form')
   .addEventListener('submit', updateButtonHandler);
 
-$(document).ready(function () {
-  render_skillsprofile();
-});
+// $(document).ready(function () {
+//   render_skillsprofile();
+// });
 
 jQuery(document).ready(function ($) {
   const tradeArea = $('#trade-history');
