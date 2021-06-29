@@ -68,3 +68,10 @@ button.nav-link {
 .info {
   text-align: center;
 }
+
+.map{
+  max-height: 250px;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
