@@ -1,17 +1,16 @@
 <div class="d-flex flex-column justify-content-center p-2">
     <h1>{{title}}</h1>
     <p>Offers{{title}}</p>
-
-
-
+    <span data-currentuser="{{user_id}}"></span>
     {{#each favors as |favor| }}
-    <div class="card mb-3" style="max-width: 40rem;">
+    <div class="card favor mb-3" style="max-width: 40rem;">
         <div class="card-header d-flex justify-content-between">
             <h5>{{ user.first_name}} {{ user.last_name}}</h5>
         </div>
         <div class="skill-badges mt-3">
             <span data-skills="{{user.skills}}" class="badges"></span>
         </div>
+
         {{!-- {{#each user.skills as |skill|}}
         <h1>{{skill}}</h1>
         {{/each}} --}}
@@ -57,7 +56,7 @@
                             <label for="item-list">Choose your favor to trade</label>
                             <select class="form-input form-control" id="item-list" name="item-list">
                                 {{#each favors as |favor| }}
-                                <option>{{favor.title}}</option>
+                                <option data-user="{{favor.user_id}}">{{favor.title}}</option>
                                 {{/each}}
                             </select>
                         </div>

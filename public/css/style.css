@@ -37,3 +37,10 @@ button.nav-link{
 .fa-big{
     font-size: 300px;
 }
+
+.favor .btn-warning:disabled, .favor .btn-warning.disabled {
+    color: #fff;
+    background-color: #666;
+    background-image: none;
+    border-color: #666;
+}

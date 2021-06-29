@@ -93,25 +93,10 @@ const render_skillsprofile = () => {
 
 }
 
-document
-  .querySelector('.new-favor-form')
-  .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.delete')
-  .addEventListener('click', delButtonHandler);
-
-
-document
-  .querySelector('.edit-favor-form')
-  .addEventListener('submit', updateButtonHandler);
-
-$(document).ready(function () {
-  render_skillsprofile();
-});
-
 jQuery(document).ready(function($){
   const tradeArea = $('#trade-history');
+  const emptyState = $('<p>' + 'You have no trade history.' + '</p>');
+  tradeArea.append(emptyState);
   const user_id = $(tradeArea).data("user");
   $.get("/api/trades").then((data) => {
       const matching = data.reduce(function (newArr, ids) {
@@ -121,11 +106,29 @@ jQuery(document).ready(function($){
            const title = $('<div class="card-title">' + 'Date of trade: ' +  formattedDate +'</div>');
            const card = $('<div class="card mb-3 p-2 favor-list" style="max-width: 40rem;"/>').append(title);
            const favor = $('<p>'+ 'Your favor "'+ ids.buyer_item + '" was traded for "' + ids.seller_item + '"</p>');
+           emptyState.remove();
            const body = $('<div class="card-body"/>').append(favor);
            card.append(body);
            tradeArea.append(card);
-         }
+         } 
       }, []);
   });
 
 });
+
+$(document).ready(function () {
+  render_skillsprofile();
+});
+
+document
+  .querySelector('.new-favor-form')
+  .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('.delete')
+  .addEventListener('click', delButtonHandler);
+
+document
+  .querySelector('.edit-favor-form')
+  .addEventListener('submit', updateButtonHandler);
+

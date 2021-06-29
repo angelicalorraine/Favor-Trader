@@ -1,3 +1,6 @@
+const currentUser = $('span[data-currentuser]').data('currentuser');
+console.log(currentUser);
+
 const tradeFormHandler = async (event) => {
   event.preventDefault();
     // Find traded thing and make it the buyer item
@@ -28,6 +31,21 @@ $(".tradeModalLaunch").click(function(event){
     $('#trade-button').attr("data-favor", seller_item_title);
     $('#trade-button').attr("data-user", seller_id);
     $("#tradeModal").modal("show");
+});
+
+const filterActivities = () => {
+    const favors = $('.card');
+    $.each(favors, function() {
+        const tradeButton = $(this).find('button.tradeModalLaunch')
+        const userID = tradeButton.data('user');
+        if(userID === currentUser){
+            tradeButton.attr('disabled', 'disabled')
+        }
+    });
+}
+
+$(document).ready(function () {
+  filterActivities();
 });
 
 document
