@@ -45,20 +45,18 @@ button.nav-link {
   font-weight: bold;
 }
 
-
 .fa-big {
   font-size: 300px;
   overflow: hidden;
-
 }
 
-.favor .btn-warning:disabled, .favor .btn-warning.disabled {
-    color: #fff;
-    background-color: #666;
-    background-image: none;
-    border-color: #666;
-    cursor: not-allowed;
-
+.favor .btn-warning:disabled,
+.favor .btn-warning.disabled {
+  color: #fff;
+  background-color: #666;
+  background-image: none;
+  border-color: #666;
+  cursor: not-allowed;
 }
 
 .far {
@@ -82,7 +80,6 @@ button.nav-link {
 .info {
   text-align: center;
 }
-
 
 .tagline {
   text-align: center;
@@ -129,8 +126,8 @@ button.nav-link {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-.map{
+}
+.map {
   max-height: 250px;
   overflow: hidden;
   position: relative;
@@ -139,9 +136,8 @@ button.nav-link {
 
 /* Media queries */
 @media screen and (max-width: 768px) {
-  .map{
+  .map {
     max-width: 450px;
     overflow: hidden;
   }
-
 }
