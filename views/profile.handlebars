@@ -1,17 +1,9 @@
-<div class=" d-flex flex-row justify-content-center user_info mx-4">
-<h2>Welcome, {{first_name}} {{last_name}}!</h2>
-
-</div>
-    
-    <div class="skill-badges mt-3">
+<div class="col-md-6 favor-list">
+    <h3>Welcome, {{first_name}} {{last_name}}!</h3>
+    {{!-- <div class="skill-badges mt-3">
         <span data-skills="{{skills}}" class="badges"></span>
-    </div>
-    <hr class="my-4">
-    <div class="d-flex flex-row">
+    </div> --}}
 
- <hr class="my-4">
-    
-<div class=" d-flex flex-column justify-content-center favor-list m-5">
     <div class="d-flex justify-content-between mt-2">
         <h4>Your Favors</h4>
 
@@ -22,8 +14,6 @@
 
         </div>
     </div>
-
-    
     {{#if favors.length}}
 
     {{#each favors as |favor| }}
@@ -53,10 +43,15 @@
 
         </div>
     </div>
+    {{/each}}
 
+    {{else}}
+    <p>You don't have any favors.</p>
+</div>
+{{/if}}
+</div>
 <div data-user="{{id}}" id="trade-history" class="col-md-5 p-5">
     <h4>Trade History</h4>
-
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
