@@ -1,79 +1,79 @@
 <div class=" d-flex flex-column  justify-content-center user_info ">
-   <div class="d-flex justify-content-center"> <h2>Welcome, {{first_name}} {{last_name}}!</h2></div>
-<div class=" d-flex justify-content-center skill-badges flex-wrap">
-    <span data-skills="{{skills}}" class="badges"></span>
-</div>
+    <div class="d-flex justify-content-center">
+        <h2>Welcome, {{first_name}} {{last_name}}!</h2>
+    </div>
+    <div class=" d-flex justify-content-center skill-badges flex-wrap">
+        <span data-skills="{{skills}}" class="badges"></span>
+    </div>
 </div>
 
 
 <hr class="my-4">
 
 <div class="d-flex flex-row justify-content-between flex-wrap">
-<div class=" d-flex flex-column justify-content-center favor-list flex-grow-1">
+    <div class=" d-flex flex-column justify-content-center favor-list flex-grow-1">
 
 
-    <div class="d-flex justify-content-between" style="max-width: 40rem;">
-        <h4 class="mt-1">Your Favors</h4>
+        <div class="d-flex justify-content-between" style="max-width: 40rem;">
+            <h4 class="mt-1">Your Favors</h4>
 
-        <div class="mb-3">
+            <div class="mb-3">
 
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
-                New Favor
-            </button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+                    New Favor
+                </button>
 
+            </div>
         </div>
+        {{#if favors.length}}
+
+        {{#each favors as |favor| }}
+        <div class="card mb-3" style="max-width: 40rem;">
+            <div class=" card-header card-title d-flex justify-content-between align-items-center flex-wrap">
+                <h4>{{favor.title}}</h4>
+                <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty:
+                    </span>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <p class="bold">Favor Description</p>
+                <p class="card-text">{{favor.description}}</p>
+                <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
+            </div>
+
+
+            <div class="card-footer text-muted d-flex justify-content-center">
+
+                <div class="mx-1 w-50">
+                    <button class="btn btn-warning w-100" data-toggle="modal" data-target="#editmodal" data-id="{{favor.id}}">EDIT</button>
+                </div>
+
+                <div class="mx-1 w-50 delete">
+                    <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+
+        {{else}}
+        <p>You don't have any favors.</p>
     </div>
-    {{#if favors.length}}
-
-    {{#each favors as |favor| }}
-    <div class="card mb-3" style="max-width: 40rem;">
-        <div class=" card-header card-title d-flex justify-content-between align-items-center flex-wrap">
-            <h4>{{favor.title}}</h4>
-            <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty:
-                </span>
-            </div>
-        </div>
-        <div class="card-body">
-
-            <p class="bold">Favor Description</p>
-            <p class="card-text">{{favor.description}}</p>
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
-        </div>
-
-
-        <div class="card-footer text-muted d-flex justify-content-center">
-
-            <div class="mx-1 w-50">
-                <button class="btn btn-warning w-100" data-toggle="modal" data-target="#editmodal"
-                    data-id="{{favor.id}}">EDIT</button>
-            </div>
-
-            <div class="mx-1 w-50 delete">
-                <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
-            </div>
-
-        </div>
-    </div>
-    {{/each}}
-
-    {{else}}
-    <p>You don't have any favors.</p>
-</div>
-{{/if}}
+    {{/if}}
 </div>
 
 <div class=" d-flex justify-content-end trade-list ">
-<div class="d-flex flex-column mt-3">
-<h4>Trade History</h4>
+    <div class="d-flex flex-column mt-3">
+        <h4>Trade History</h4>
 
-<div class = "mt-4" data-user="{{id}}" id="trade-history">
-    
-</div>
-</div>
+        <div class="mt-4" data-user="{{id}}" id="trade-history">
+
+        </div>
+    </div>
 </div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -115,11 +115,10 @@
     </div>
 </div>
 
-    {{#if favors.length}}
-    
-    {{#each favors as |favor| }}
-<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+{{#if favors.length}}
+
+{{#each favors as |favor| }}
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -133,12 +132,10 @@
                     <div class="row mt-4">
                         <div class="form-group ">
                             <label for="favor-title">Title </label>
-                            <input class="form-input form-control mb-3" type="text" id="favor-title" name="favor-title"
-                                value="{{favor.title}}">
+                            <input class="form-input form-control mb-3" type="text" id="favor-title" name="favor-title" value="{{favor.title}}">
                             <div class="form-group">
                                 <label for="favor-desc">Description</label>
-                                <input class="form-input form-control mb-3" type="text" id="favor-description"
-                                    name="favor-description" value="{{favor.description}}">
+                                <input class="form-input form-control mb-3" type="text" id="favor-description" name="favor-description" value="{{favor.description}}">
                             </div>
                             <div class="form-group">
                                 <label for="favor-difficulty">Difficulty Level (1-5)</label>
@@ -163,15 +160,14 @@
         </div>
     </div>
 </div>
-    {{/each}}
-    
- 
-    </div>
-    {{/if}}
+{{/each}}
+
+
+</div>
+{{/if}}
 
 
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/profile.js"></script>

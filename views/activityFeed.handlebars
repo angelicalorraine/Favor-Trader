@@ -1,79 +1,71 @@
 <div class="d-flex justify-content-center p-2">
 
-<div class="d-flex flex-column justify-content-center p-2">
-    <h1>{{title}}</h1>
-    <p>Offers{{title}}</p>
-
-
-
-    {{#each favors as |favor| }}
-    <div class="card mb-3" style="max-width: 40rem;">
-        <div class="card-header d-flex align-items-center justify-content-between ">
-           <div class="name"><h5>{{ user.first_name}} {{ user.last_name}}</h5>
-        </div>
-        <div class="skill-badges">
-            <span data-skills="{{user.skills}}" class="badges"></span>
-        </div>
-        </div>
-        {{!-- {{#each user.skills as |skill|}}
-        <h1>{{skill}}</h1>
-        {{/each}} --}}
-        <div class="card-body d-flex justify-content-between align-items-center">
-
-            <h4 class="card-title">{{favor.title}}</h4>
-            <span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span>
-        </div>
-
-        <div class="card-body">
-            <p class="card-text">{{favor.description}}</p>
-
-            <i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.zip }}
-            {{!-- <iframe width="600" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWUXFtnQLy-H8kSJawAsZU2b-uBkpmacE&q={{user.location_string}}">
-            </iframe> --}}
-        </div>
-
-
-        <div class="card-footer text-muted d-flex justify-content-center">
-            <div class="w-100">
-                <button type="button" data-favor="{{favor.title}}" data-user="{{user.id}}" data-seller="{{ user.first_name}} {{ user.last_name}}" data-id="{{favor.id}}" class="btn btn-warning w-100 tradeModalLaunch">Trade</button>
+    <div class="d-flex flex-column justify-content-center p-2">
+        <h1>{{title}}</h1>
+        <p>Offers{{title}}</p>
+        <span data-currentuser="{{user_id}}"></span>
+        {{#each favors as |favor| }}
+        <div class="card mb-3" style="max-width: 40rem;">
+            <div class="card-header d-flex align-items-center justify-content-between ">
+                <div class="name">
+                    <h5>{{ user.first_name}} {{ user.last_name}}</h5>
+                </div>
+                <div class="skill-badges">
+                    <span data-skills="{{user.skills}}" class="badges"></span>
+                </div>
             </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title">{{favor.title}}</h4>
+                    <span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty: </span>
+                </div>
+                <p class="card-text">{{favor.description}}</p>
 
+                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ user.zip }}
+                <div>
+                    <iframe width="600" height="250" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDWUXFtnQLy-H8kSJawAsZU2b-uBkpmacE&q={{user.location_string}}">
+                </div>
+                </iframe>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-center">
+                <div class="w-100">
+                    <button type="button" data-favor="{{favor.title}}" data-user="{{user.id}}" data-seller="{{ user.first_name}} {{ user.last_name}}" data-id="{{favor.id}}" class="btn btn-warning w-100 tradeModalLaunch">Trade</button>
+                </div>
+
+            </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
 
-<div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="tradeModalTitle">Favor Trade</h5>
-                <button type="button" class="close nav-link" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form class="form trade-form">
-                <div class="modal-body">
-                    <h5 class="p-3">Trading with <span class="underline" id="seller-name"></span> for <span class="underline" id="seller-item-name"></span>.</h5>
-                    <div class="row mt-4">
-                        <div class="form-group">
-                            <label for="item-list">Choose your favor to trade</label>
-                            <select class="form-input form-control" id="item-list" name="item-list">
-                                {{#each favors as |favor| }}
-                                <option>{{favor.title}}</option>
-                                {{/each}}
-                            </select>
+    <div class="modal fade" id="tradeModal" tabindex="-1" role="dialog" aria-labelledby="tradeModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tradeModalTitle">Favor Trade</h5>
+                    <button type="button" class="close nav-link" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class="form trade-form">
+                    <div class="modal-body">
+                        <h5 class="p-3">Trading with <span class="underline" id="seller-name"></span> for <span class="underline" id="seller-item-name"></span>.</h5>
+                        <div class="row mt-4">
+                            <div class="form-group">
+                                <label for="item-list">Choose your favor to trade</label>
+                                <select class="form-input form-control" id="item-list" name="item-list">
+                                    {{#each favors as |favor| }}
+                                    <option data-user="{{favor.user_id}}">{{favor.title}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
                         </div>
-
-
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="trade-button" data-favor="" data-user="" type="submit" class="btn w-100 btn-success">Trade</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button id="trade-button" data-favor="" data-user="" type="submit" class="btn w-100 btn-success">Trade</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </div>
 <script src="/js/trade.js"></script>

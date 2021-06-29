@@ -44,7 +44,8 @@ router.get('/activityFeed', withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('activityFeed', {
       favors,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id
     });
   } catch (err) {
     console.log(err)
