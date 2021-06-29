@@ -83,7 +83,7 @@ const render_skillsprofile = () => {
 
     let badge = $(this);
     $.each(skillList, function (index, value) {
-      let newBadge = $(' <span class="badge bg-success" />');
+      let newBadge = $(' <span class="badge bg-secondary" />');
       newBadge.text(value);
 
       $(badge).closest('div').append(newBadge);
@@ -131,4 +131,3 @@ document
 document
   .querySelector('.edit-favor-form')
   .addEventListener('submit', updateButtonHandler);
-
