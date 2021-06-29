@@ -1,5 +1,4 @@
 const currentUser = $('span[data-currentuser]').data('currentuser');
-console.log(currentUser);
 
 const tradeFormHandler = async (event) => {
   event.preventDefault();
@@ -39,13 +38,25 @@ const filterActivities = () => {
         const tradeButton = $(this).find('button.tradeModalLaunch')
         const userID = tradeButton.data('user');
         if(userID === currentUser){
-            tradeButton.attr('disabled', 'disabled')
+            tradeButton.attr('disabled', 'disabled');
+        }
+    });
+}
+
+
+const filterFavorsInTradeModal = () => {
+    const list = $('#item-list option');
+    $.each(list, function() {
+        const userID = $(this).data('user');
+        if(userID === currentUser){
+           $(this).remove();
         }
     });
 }
 
 $(document).ready(function () {
   filterActivities();
+  filterFavorsInTradeModal();
 });
 
 document
