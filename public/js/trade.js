@@ -48,7 +48,7 @@ const filterFavorsInTradeModal = () => {
     const list = $('#item-list option');
     $.each(list, function() {
         const userID = $(this).data('user');
-        if(userID === currentUser){
+        if(userID !== currentUser){
            $(this).remove();
         }
     });
