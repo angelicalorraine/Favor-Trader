@@ -30,6 +30,13 @@ Favor.init(
         key: 'id',
       },    
     },
+     trade_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'trade',
+        key: 'id',
+      },    
+    },
   },
   {
     sequelize,
