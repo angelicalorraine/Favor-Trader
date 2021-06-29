@@ -1,12 +1,10 @@
+// Add Favor button on click functionality
+
 const newFormHandler = async (event) => {
   event.preventDefault();
-
   const title = document.querySelector('#favor-title').value.trim();
   const description = document.querySelector('#favor-desc').value.trim();
   const difficulty = $('#favor-difficulty').children("option:selected").val();
-  console.log(title);
-  console.log(description);
-  console.log(difficulty);
 
   if (title && description && difficulty) {
     const response = await fetch(`/api/favors`, {
@@ -20,14 +18,12 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create favor.');
     }
   }
 };
 
-
-
-
+// Edit Favor functionality
 const updateButtonHandler = async (event) => {
   event.preventDefault();
 
@@ -56,8 +52,7 @@ const updateButtonHandler = async (event) => {
 
 };
 
-
-
+// Delete button on click functionality
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
@@ -69,13 +64,12 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to delete favor');
     }
   }
 };
 
-
-
+// Rendering skills onto profile page
 const render_skillsprofile = () => {
   const badgeAreas = $('.badges');
   $.each(badgeAreas, function () {
@@ -93,6 +87,7 @@ const render_skillsprofile = () => {
 
 }
 
+// Render trade history onto page
 jQuery(document).ready(function($){
   const tradeArea = $('#trade-history');
   const emptyState = $('<p>' + 'You have no trade history.' + '</p>');
@@ -116,18 +111,22 @@ jQuery(document).ready(function($){
 
 });
 
+// Render skills badges
 $(document).ready(function () {
   render_skillsprofile();
 });
 
+// Event listener for New Favor
 document
   .querySelector('.new-favor-form')
   .addEventListener('submit', newFormHandler);
 
+// Event listener for Delete Favor 
 document
   .querySelector('.delete')
   .addEventListener('click', delButtonHandler);
 
+// Event listener for Edit Favor
 document
   .querySelector('.edit-favor-form')
   .addEventListener('submit', updateButtonHandler);
