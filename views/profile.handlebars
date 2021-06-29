@@ -54,69 +54,9 @@
         </div>
     </div>
 
+<div data-user="{{id}}" id="trade-history" class="col-md-5 p-5">
+    <h4>Trade History</h4>
 
-    {{/each}}
-
-    {{else}}
-    <p>You don't have any favors.</p>
-</div>
-{{/if}}
-</div>
-
-
-
-{{!-- TRADES --}}
-<div class=" d-flex flex-column justify-content-center trade-list m-5">
-    <div class="d-flex justify-content-between mt-2">
-        <h4>Your Trades</h4>
-
-        <div class="mb-4">
-      
-
-        </div>
-    </div>
-
-
-    {{#if trades.length}}
-
-    {{#each trades as |trade| }}
-    <div class="card mb-3">
-        <div class="card-title d-flex justify-content-between align-items-center">
-            <h4 class="p-4">{{trade.buyer_item}}</h4>
-            <div class="text-right"><span data-difficulty="{{favor.difficulty }}" class="badge bg-secondary">Difficulty:
-                </span>
-            </div>
-        </div>
-        <div class="card-body">
-
-            <p class="bold">Favor Description</p>
-            <p class="card-text">{{trade.seller_item}}</p>
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{../zip}}</p>
-        </div>
-
-
-        <div class="card-footer text-muted d-flex justify-content-center">
-
-            <div class="mx-1 w-50">
-                <button class="btn btn-warning w-100" data-toggle="modal" data-target="#editmodal"
-                    data-id="{{favor.id}}">EDIT</button>
-            </div>
-
-            <div class="mx-1 w-50 delete">
-                <button class="btn btn-danger w-100" data-id="{{favor.id}}">DELETE</button>
-            </div>
-
-        </div>
-    </div>
-
-
-    {{/each}}
-
-    {{else}}
-    <p>You don't have any favors.</p>
-</div>
-{{/if}}
-</div>
 </div>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -209,5 +149,5 @@
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="/js/profile.js"></script>

@@ -6,7 +6,7 @@
     "password": "password",
     "location_string": "8039+Beach+Blvd+Buena+Park+CA+90620",
     "zip": 90620,
-    "skills": ["Time management", "Multitasking", "Information technology"]
+    "skills": ["Photography", "Multitasking", "Bartending"]
   },
   {
     "first_name": "Gayel",
@@ -15,7 +15,7 @@
     "password": "bIiF0XG",
     "location_string": "670+Spectrum+Center+Dr+Irvine+CA",
     "zip": 92618,
-    "skills": ["Time management", "Multitasking", "Information technology"]
+    "skills": ["Beauty", "Accounting", "Painting"]
   },
   {
     "first_name": "Murry",
@@ -33,7 +33,7 @@
     "password": "90TzO6dm",
     "location_string": "1126+Queens+Hwy+Long+Beach+CA+90802",
     "zip": 90802,
-    "skills": ["Time management", "Multitasking", "Information technology"]
+    "skills": ["Crafting", "Multitasking", "Installations"]
   },
   {
     "first_name": "Odo",
@@ -42,6 +42,6 @@
     "password": "dPGEM8kf",
     "location_string": "1000+Avocado+Ave+Newport+Beach+CA",
     "zip": 92660,
-    "skills": ["Time management", "Multitasking", "Information technology"]
+    "skills": ["Catering", "Grooming", "Florist"]
   }
 ]
