@@ -1,3 +1,4 @@
+// Render difficulty stars
 const render_difficulty = () => {
   const rating = $('body').find("span[data-difficulty]");
   $.each(rating, function () {
@@ -7,12 +8,11 @@ const render_difficulty = () => {
   });
 }
 
+// Render skills badges
 const render_skillsnew = () => {
   const badgeAreas = $('.badges');
   $.each(badgeAreas, function () {
     const skillList = $(this).data("skills");
-    console.log(skillList);
-
     let badge = $(this);
     $.each(skillList, function (index, value) {
       let newBadge = $(' <span class="badge bg-success" />');
@@ -24,37 +24,7 @@ const render_skillsnew = () => {
   });
 }
 
-
-// const render_skills = () => {
-//   const badgeAreas = $('.badges');
-//   $.each(badgeAreas, function () {
-//     const skillList = $(this).data("skills");
-//     const splitList = skillList.split(',');
-//     const cleanlist = splitList.map(word =>
-//       word.replace(/[^\w\s]/g, '')
-//     );
-
-//     let badge = $(this);
-//     $.each(cleanlist, function (index, value) {
-//       let newBadge = $(' <span class="badge bg-success" />');
-//       newBadge.text(value);
-
-//       $(badge).closest('div').append(newBadge);
-//     });
-
-//   });
-
-// }
-
-
-
-
-
-
-
-
 $(document).ready(function () {
   render_difficulty();
-  // render_skills();
   render_skillsnew();
 });

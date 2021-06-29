@@ -1,3 +1,4 @@
+/* Element styles */
 h1,
 h2,
 h3,
@@ -7,6 +8,13 @@ h5 {
   margin-bottom: 0rem;
 }
 
+button.nav-link {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+/* Class styles */
 .navbar-collapse {
   justify-content: flex-end;
 }
@@ -33,19 +41,24 @@ h5 {
   text-align: right;
 }
 
-button.nav-link {
-  background-color: transparent;
-  outline: none;
-  border: none;
-}
-
 .bold {
   font-weight: bold;
 }
 
+
 .fa-big {
   font-size: 300px;
   overflow: hidden;
+
+}
+
+.favor .btn-warning:disabled, .favor .btn-warning.disabled {
+    color: #fff;
+    background-color: #666;
+    background-image: none;
+    border-color: #666;
+    cursor: not-allowed;
+
 }
 
 .far {
@@ -69,6 +82,7 @@ button.nav-link {
 .info {
   text-align: center;
 }
+
 
 .tagline {
   text-align: center;
@@ -116,4 +130,19 @@ button.nav-link {
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+.map{
+  max-height: 250px;
+  overflow: hidden;
+  position: relative;
+  clear: both;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  .map{
+    max-width: 450px;
+    overflow: hidden;
+  }
+
 }
