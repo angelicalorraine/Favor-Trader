@@ -17,12 +17,15 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'secret',
-  cookie: {},
+  cookie: {
+    sameSite: "None",
+    secure: "false"
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize
-  })
+  }),
 };
 
 app.use(session(sess));
