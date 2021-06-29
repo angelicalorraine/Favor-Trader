@@ -52,6 +52,7 @@ button.nav-link {
     background-color: #666;
     background-image: none;
     border-color: #666;
+    cursor: not-allowed;
 }
 
 .far {
