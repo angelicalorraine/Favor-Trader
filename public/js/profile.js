@@ -151,7 +151,7 @@ jQuery(document).ready(function ($) {
 
         const title = $('<div class="card-header card-title pr-4"> <h6>' + 'Date of trade: ' + formattedDate + '</h6></div>');
         const card = $('<div class="card tradeCard border-primary mb-3 p-2 favor-list " style="width: 35rem;"/>').append(title);
-        const favor = $('<p class="trade">' + 'Your Favor Trade: <br> "' + ids.buyer_item + '" <br> was traded for "' + ids.seller_item + '"</p>');
+        const favor = $('<p class="trade">' + 'Your Traded Favor: <br> "' + ids.buyer_item + '" <br> was traded for "' + ids.seller_item + '"</p>');
 
         const body = $('<div class="card-body"/>').append(favor);
         card.append(body);
