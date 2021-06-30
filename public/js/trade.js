@@ -14,7 +14,7 @@ const tradeFormHandler = async (event) => {
     });
     if (response.ok) {
       // If successful, redirect the browser to the dashboard page
-      document.location.replace('/activityFeed');
+      document.location.replace('/profile');
     } else {
       alert('Failed to trade favors');
     }
